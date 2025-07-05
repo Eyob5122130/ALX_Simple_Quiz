@@ -1,22 +1,20 @@
 function checkAnswer() {
   const correctAnswer = "4";
-  const selectedOption = document.querySelector('input[name="quiz"]:checked');
-  const feedback = document.getElementById("feedback");
+  const selected = document.querySelector('input[name="quiz"]:checked');
 
-  if (!selectedOption) {
-    feedback.textContent = "Please select an answer.";
-    feedback.style.color = "#dc3545"; // red
+  if (!selected) {
+    document.getElementById("feedback").textContent =
+      "Please select an answer.";
     return;
   }
 
-  const userAnswer = selectedOption.value;
+  const userAnswer = selected.value;
+  const feedback = document.getElementById("feedback");
 
   if (userAnswer === correctAnswer) {
     feedback.textContent = "Correct! Well done.";
-    feedback.style.color = "#28a745"; // green
   } else {
     feedback.textContent = "That's incorrect. Try again!";
-    feedback.style.color = "#dc3545"; // red
   }
 }
 
